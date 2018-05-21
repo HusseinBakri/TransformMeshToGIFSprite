@@ -74,10 +74,12 @@ You can install the python modules inside Blender (so Blender can see them) usin
 ```
 pip3 install --target=/Applications/Blender/blender.app/Contents/Resources/2.79/python/lib/python3.5/ image
 ```
-On Blender Level, in Linux, example Fedora, Python packages are located in:
+Fortunately, for Linux OSs per examples Ubuntu Server 16.04/Fedora 27, it suffices if you install the Python package 'Pillow' on the OS level only like the following:
 ```
-/blender/2.79/python/lib/python3.5/
+sudo pip3 install pillow  
 ```
+
+Apperantly on Linux, Blender Python interpreter can see the system level python modules. Not sure if that is applicable to MS Windows 10. Did not try that yet!
 
 #### Other requirements
 Install graphicsmagick which allows us to create a GIF file from a bunch of images files setting delay etc.... Of course there are other tools if you wish to use. On Mac OS, install it via HomeBrew:
