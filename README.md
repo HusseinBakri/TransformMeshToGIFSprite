@@ -1,5 +1,5 @@
 # TransformMeshIntoGIFandSprite
-A Python 3 tool that transforms a 3D model / 3D Mesh in OBJ format or GLTF (need some changes in code) into a GIF file and into a 3D Sprite image file using the Blender Python API and other tools.
+A Python 3 tool that transforms a 3D model / 3D Mesh from OBJ format or GLTF (need some changes in code) into a GIF file and into a CSS Sprite image file using the Blender Python API and other tools.
 
 ## Introduction
 Ever wondered how when you go to https://sketchfab.com/ on a browser that do not support WebGL, You get the 3D model with a 360 view in a clever way. Well actually it is not like it is an actually 360 images but a clever technique called 3D Spriting.
