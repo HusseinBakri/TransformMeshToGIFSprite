@@ -8,7 +8,7 @@ A lot of similar repositories to Sketchfab (https://sketchfab.com/ ), provide su
 
 Sketchfab normally produces an image Sprite of 15 small images of the 3D model, combined into one thin landscape image. A Javascript library can then receive this 3D sprite image from the server and renders it to create a somehow 360 effect. Please see section titled "Javascript Viewers for 3D Models' Sprite Images" later for suggestions of libraries I enjoyed using on GitHub that renders/shows a sprite image as a 360 image.
 
-This current Python tool licensed under MIT License,  helps you out with this by taking as input a 3D model in OBJ (you can easily change the code to accommodate other 3D file formats like gLTF, Collada ...  - tell you later how). This tool then captures different venture points of the 3D model while spinning/rotating it and outputs a bunch of images (16 images to be precise) and a GIF file. It also outputs a CSS sprite image.
+This current Python tool licensed under MIT License,  helps you out with this by taking as input a 3D model in OBJ (you can easily change the code to accommodate other 3D file formats like X3D, Collada ...  - tell you later how). This tool then captures different venture points of the 3D model while spinning/rotating it and outputs a bunch of images (16 images to be precise) and a GIF file. It also outputs a CSS sprite image.
 
 This tool is ideal to be integrated into a server side logic that can do this task in Batch for all 3D models.
 
@@ -38,11 +38,11 @@ bpy.ops.import_scene.fbx(filepath=input_model)
 * Install Blender (https://www.blender.org/) on the operating system in question and make sure it is runnable from the terminal/Command Line (explained in a later section for how to do that on Mac OS). On Linux, I beleive you won't encounter problems. I found Blender is easier to run on Linux in headless mode, than per example: Meshlab - http://www.meshlab.net/ - (which we can do the same task in).
 * Install Python 3 Packages Pillow/Image inside Blender Python packages and maybe on the OS level also. 
 
-Yes Blender uses its own Python Packages. Have a look at https://blender.stackexchange.com/questions/5287/using-3rd-party-python-modules. Non-common python modules are not recognized by Blender (even if installed on OS level) and thus need to be installed accordingly (please see in corresponding sections of Operating Systems).
-* Installing graphicsmagick (http://www.graphicsmagick.org/) on the operating system in question.
+Yes! Blender uses its own Python Packages! Have a look at https://blender.stackexchange.com/questions/5287/using-3rd-party-python-modules. Non-common python modules are not recognized by Blender (even if installed on OS level) and thus need to be installed accordingly (please see in corresponding sections of Operating Systems).
+* Installing graphicsmagick (http://www.graphicsmagick.org/) on the operating system in question and make sure it is runnable from terminals.
 
 ### Mac OS
-In Mac OS, Blender may be an unrecognized command so you need to create an alias so it can be used from terminal Normally Blender command or process is inside the blender.app folder. Do the following:
+In Mac OS, Blender may be an unrecognized command so you need to create an alias so it can be used from the terminal. Normally Blender command or process is inside the blender.app folder. Do the following:
 ```
 echo 'alias blender="/Applications/blender.app/Contents/MacOS/blender"' >> .bashrc
 ```
@@ -60,23 +60,23 @@ blender --version
 ```
 
 ### Python Packages
-On Mac/Linnux Operating systems level:
+On Mac/Linux Operating systems level:
 ```
 sudo pip3 install pillow  
 sudo pip3 install image
 ```
-On Blender Level, in MacOS High Sierra usually all python modules are installed in the following directly. Please check if different. You won't have difficulities finding it
+On Blender Level, in MacOS High Sierra, usually all python modules are located in the following directory (Please check if different. You won't have difficulities finding it)
 ```
 /Applications/Blender/blender.app/Contents/Resources/2.79/python/lib/python3.5
 ```
 
-You can install the python modules inside Blender (so Blender can see them) using the following method:
+You can install the python modules inside Blender (so Blender can see them) using the --target method on pip3:
 ```
 pip3 install --target=/Applications/Blender/blender.app/Contents/Resources/2.79/python/lib/python3.5/ image
 ```
 On Blender Level, in Linux, example Fedora, Python packages are located in:
 ```
-XX
+/blender/2.79/python/lib/python3.5/
 ```
 
 #### Other requirements
