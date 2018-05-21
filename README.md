@@ -2,11 +2,11 @@
 A Python 3 tool that transforms a 3D model / 3D Mesh from OBJ format or GLTF (need some changes in code) into a GIF file and into a CSS Sprite image file using the Blender Python API and other tools.
 
 ## Introduction
-Ever wondered when you go to https://sketchfab.com/ on a browser that do not support WebGL, How you get sort of 360 view of the 3D model in a clever way. Well actually it is not like it is an actual 360 image but a clever technique called 3D Spriting.
+Ever wondered when you go to https://sketchfab.com/ on a browser that do not support WebGL, How you get sort of 360 view of the 3D model in a clever way. Well actually it is not like it is an actual 360 image but a clever technique called **3D Spriting** or **360 Spriting**.
 
 A lot of similar repositories to Sketchfab (https://sketchfab.com/ ), provide such technique and it can be used to showcase or mimic a 3D model on less capable devices especially mobile devices just with a bunch of images taken from different venture points of a certain 3D model. I believe it is quite handy in a lot of cases.
 
-Sketchfab normally produces an image Sprite of 15 small images of the 3D model, combined into one thin landscape image. A Javascript library can then receive this 3D sprite image from the server and renders it to create a somehow 360 effect. Please see section titled 'Javascript Viewers for 3D Sprites' later for suggestions of libraries I enjoyed using on GitHub that renders/shows a sprite image as a 360 image.
+Sketchfab normally produces an image Sprite of 15 small images of the 3D model, combined into one thin landscape image. A Javascript library can then receive this 3D sprite image from the server and renders it to create a somehow 360 effect. Please see section titled "Javascript Viewers for 3D Models' Sprite Images" later for suggestions of libraries I enjoyed using on GitHub that renders/shows a sprite image as a 360 image.
 
 This current Python tool licensed under MIT License,  helps you out with this by taking as input a 3D model in OBJ (you can easily change the code to accommodate other 3D file formats like gLTF, Collada ...  - tell you later how). This tool then captures different venture points of the 3D model while spinning/rotating it and outputs a bunch of images (16 images to be precise) and a GIF file. It also outputs a CSS sprite image.
 
@@ -37,7 +37,6 @@ Finally check if blender can be invoked from terminal:
 ```
 blender --version
 ```
-
 
 ### Python Packages
 On Mac/Linnux Operating systems level:
@@ -91,8 +90,10 @@ blender -b -P GIFandSpriteFromModel.py -- --inm 'Original_Mesh.obj'
 blender -b -P GIFandSpriteFromModel.py -- --inm 'Hat.obj'
 ```
 
-## Javascript Viewers for 3D Sprites
-* First suggestion a lovely library found at 
+## Javascript Viewers for 3D Models' Sprite Images
+* First suggestion, is a lovely project called 360-degrees-product-viewer found at https://github.com/CodyHouse/360-degrees-product-viewer
+* Second suggestion, 
+
 
 ## MIT License
 
