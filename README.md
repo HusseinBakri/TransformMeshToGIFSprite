@@ -1,8 +1,8 @@
 # TransformMeshIntoGIFandSprite
-A Python 3 tool that transforms a 3D model / 3D Mesh from OBJ format or GLTF (need some changes in code) into a GIF file and into a CSS Sprite image file using the Blender Python API and other tools.
+A Python 3 tool that transforms a 3D model / 3D Mesh from OBJ format or Collada (need some changes in code) into a GIF file and into a CSS Sprite image file using the Blender Python API and other tools.
 
 ## Introduction
-Ever wondered when you go to https://sketchfab.com/ on a browser that do not support WebGL, How you get sort of 360 view of the 3D model in a clever way. Well actually it is not like it is an actual 360 image but a clever technique called **3D Spriting** or **360 Spriting**.
+Ever wondered when you go to https://sketchfab.com/ on a browser that do not support WebGL, How you get sort of 360 view of the 3D model in a clever way? Well, actually it is not like it is an actual 360 image but a clever technique called **3D Spriting** or **360 Spriting**.
 
 A lot of similar repositories to Sketchfab (https://sketchfab.com/ ), provide such technique and it can be used to showcase or mimic a 3D model on less capable devices especially mobile devices just with a bunch of images taken from different venture points of a certain 3D model. I believe it is quite handy in a lot of cases.
 
@@ -11,6 +11,27 @@ Sketchfab normally produces an image Sprite of 15 small images of the 3D model, 
 This current Python tool licensed under MIT License,  helps you out with this by taking as input a 3D model in OBJ (you can easily change the code to accommodate other 3D file formats like gLTF, Collada ...  - tell you later how). This tool then captures different venture points of the 3D model while spinning/rotating it and outputs a bunch of images (16 images to be precise) and a GIF file. It also outputs a CSS sprite image.
 
 This tool is ideal to be integrated into a server side logic that can do this task in Batch for all 3D models.
+
+You can change my code, in a very simple manner, to import other types of 3D file formats as long as they are supported by Blender in the following manner [look for bpy.ops.import_scene.obj(filepath=input_model) and replace it with what you want]:
+```
+# Pay ATTENTION to extentions of files: Collada (.dae), FBX (.fbx), X3D (.x3d), Wavefront OBJ (.obj) etc...
+# For OJB Format
+# Importing a model in Wavefront OBJ (used in my Tool)
+bpy.ops.import_scene.obj(filepath=input_model)
+
+# For Collada Format
+# Importing .collada 
+bpy.ops.wm.collada_import(filepath=input_model)
+
+# For Extensible 3D (.x3d)
+# Importing X3D Format
+bpy.ops.import_scene.x3d(filepath=input_model)
+
+# For FBX (.fbx)
+# Importing FBX
+bpy.ops.import_scene.fbx(filepath=input_model)
+
+```
 
 
 ## Requirements
@@ -91,8 +112,7 @@ blender -b -P GIFandSpriteFromModel.py -- --inm 'Hat.obj'
 ```
 
 ## Javascript Viewers for 3D Models' Sprite Images
-* First suggestion, is a lovely project called 360-degrees-product-viewer found at https://github.com/CodyHouse/360-degrees-product-viewer
-* Second suggestion, 
+* 360-degrees-product-viewer, is a lovely resource found at https://github.com/CodyHouse/360-degrees-product-viewer that can do the job very well.
 
 
 ## MIT License
