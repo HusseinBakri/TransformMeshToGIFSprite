@@ -4,7 +4,9 @@ Author: Hussein Bakri
 License: MIT
 Requirements: Blender on the OS (runnable from terminals/Command Lines)
             Package Pillow/Image: sudo pip3 install image in Blender
-            Installing graphicsmahick
+            You have to install GraphicsMagick (so that the gm command can work)
+            Fedora 26: sudo dnf install GraphicsMagick
+            Ubuntu: sudo apt-get install graphicsmagick
 
 Usage: blender -b -P GIFandSpriteFromModel.py -- --inm 'Original_Mesh.obj'
 
