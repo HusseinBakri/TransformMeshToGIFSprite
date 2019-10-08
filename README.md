@@ -1,16 +1,16 @@
 # TransformMeshIntoGIFandSprite
-A Python 3 tool that transforms a 3D model / 3D Mesh from OBJ format or Collada (need some changes in code) into a GIF file and into a CSS Sprite image file using the Blender Python API and other tools.
+A Python 3 tool that transforms a 3D model / 3D Mesh from OBJ format or Collada into a GIF file and into a CSS Sprite image file using the Blender Python API and other tools.
 
 ## Introduction
-Ever wondered when you go to https://sketchfab.com/ on a browser that do not support WebGL, How you get sort of 360 view of the 3D model in a clever way? Well, actually it is not like it is an actual 360 image but a clever technique called **3D Spriting** or **360 Spriting**.
+Ever wondered when you go to https://sketchfab.com/ on a browser that do not support WebGL, How you get sort of 360 view of the 3D model in a clever way? Well, actually it is a clever technique called **3D Spriting** or **360 Spriting**.
 
-A lot of similar repositories to Sketchfab (https://sketchfab.com/ ), provide such technique and it can be used to showcase or mimic a 3D model on less capable devices especially mobile devices just with a bunch of images taken from different venture points of a certain 3D model. I believe it is quite handy in a lot of cases.
+A lot of similar repositories to Sketchfab (https://sketchfab.com/), provide such technique and it can be used to showcase or mimic a 3D model on less capable devices especially mobile devices just with a bunch of images taken from different venture points of a certain 3D model. 
 
-Sketchfab normally produces an image Sprite of 15 small images of the 3D model, combined into one thin landscape image. A Javascript library can then receive this 3D sprite image from the server and renders it to create a somehow 360 effect. Please see section titled "Javascript Viewers for 3D Models' Sprite Images" later for suggestions of libraries I enjoyed using on GitHub that renders/shows a sprite image as a 360 image.
+Sketchfab normally produces an image Sprite of 15 small images of the 3D model, combined into one thin landscape image. A Javascript library can then receive this 3D sprite image from the server and renders it to create a somehow 360 effect. Please see section titled "Javascript Viewers for 3D Models' Sprite Images" later for suggestions of libraries I enjoyed using that renders/shows a sprite image as a 360 image.
 
-This current Python tool licensed under MIT License,  helps you out with this by taking as input a 3D model in OBJ (you can easily change the code to accommodate other 3D file formats like X3D, Collada ...  - tell you later how). This tool then captures different venture points of the 3D model while spinning/rotating it and outputs a bunch of images (16 images to be precise) and a GIF file. It also outputs a CSS sprite image.
+This current Python tool helps you out with this by taking as input a 3D model in OBJ (you can easily change the code to accommodate other 3D file formats like X3D, Collada ...). This tool then captures different frames from different venture points of the 3D model by spinning or rotating it. The tool outputs a bunch of images (16 images to be precise) and a GIF file. It also outputs a CSS sprite image.
 
-This tool is ideal to be integrated into a server side logic that can do this task in Batch for all 3D models.
+This tool is ideal to be integrated into a server side logic that can do this task in batch for all 3D models.
 
 You can change my code, in a very simple manner, to import other types of 3D file formats as long as they are supported by Blender in the following manner [look for bpy.ops.import_scene.obj(filepath=input_model) and replace it with what you want]:
 ```
@@ -33,12 +33,11 @@ bpy.ops.import_scene.fbx(filepath=input_model)
 
 ```
 
-
 ## Requirements
-* Install Blender (https://www.blender.org/) on the operating system in question and make sure it is runnable from the terminal/Command Line (explained in a later section for how to do that on Mac OS). On Linux, I beleive you won't encounter problems. I found Blender is easier to run on Linux in headless mode, than per example: Meshlab - http://www.meshlab.net/ - (which we can do the same task in).
-* Install Python 3 Packages Pillow/Image inside Blender Python packages and maybe on the OS level also. 
+* Install Blender (https://www.blender.org/) on the operating system in question and make sure it is runnable from the terminal/Command Line (explained in a later section for how to do that on Mac OS). On Linux, I beleive you won't encounter problems. I found Blender is easier to run on Linux in headless mode, than per example: Meshlab - http://www.meshlab.net/ - (which we can do the same task but with more tweaking for a headless mode).
+* Install Python 3 packages Pillow/Image inside Blender Python packages and also on the OS level. 
 
-Yes! Blender uses its own Python Packages! Have a look at https://blender.stackexchange.com/questions/5287/using-3rd-party-python-modules. Non-common python modules are not recognized by Blender (even if installed on OS level) and thus need to be installed accordingly (please see in corresponding sections of Operating Systems).
+Yes! Blender uses its own Python packages! Have a look at https://blender.stackexchange.com/questions/5287/using-3rd-party-python-modules. Non-common python modules are not recognized by Blender (even if they are installed successfully on the OS level and thus they need to be installed accordingly (please check in corresponding sections of Operating Systems).
 * Installing graphicsmagick (http://www.graphicsmagick.org/) on the operating system in question and make sure it is runnable from terminals.
 
 ### Mac OS
@@ -82,7 +81,7 @@ sudo pip3 install pillow
 Apperantly on Linux, Blender Python interpreter can see the system level python modules. Not sure if that is applicable to MS Windows 10. Did not try that yet!
 
 #### Other requirements
-Install graphicsmagick which allows us to create a GIF file from a bunch of images files setting delay etc.... Of course there are other tools if you wish to use. On Mac OS, install it via HomeBrew:
+Install graphicsmagick which allows us to create a GIF file from a bunch of image files setting delay etc.... Of course there are other tools that you can use. On Mac OS, install graphicsmagick via HomeBrew:
 
 ```
 brew install graphicsmagick
@@ -97,12 +96,12 @@ sudo dnf install GraphicsMagick
 sudo apt-get install graphicsmagick
 
 ```
-Finally make sure it can be called from terminals
+Finally make sure that it can be called from terminals
 ```
 gm -version
 ```
 
-## Usage
+## Usage of the tool
 ```
 blender -b -P GIFandSpriteFromModel.py -- --inm 'Original_Mesh.obj'
 ```
@@ -116,11 +115,10 @@ blender -b -P GIFandSpriteFromModel.py -- --inm 'Hat.obj'
 ## Javascript Viewers for 3D Models' Sprite Images
 * 360-degrees-product-viewer, is a lovely resource found at https://github.com/CodyHouse/360-degrees-product-viewer that can do the job very well.
 
-
 ## MIT License
 
-This tool uses on another code that create a CSS Sprite (found at https://gist.github.com/gourneau/939252 ) which is based on Creative Commons Attribution 3.0 United. All rights reserved and my great appreciation.
+This tool uses on another code that create a CSS Sprite (found at https://gist.github.com/gourneau/939252 ) which is based on Creative Commons Attribution 3.0 United. All rights reserved and my great appreciation to the author.
 
 My current tool adopts the MIT License as it did some minor changes to a third party code (cited previsouly) to work with the intended goal of this particular tool.
 
-I expect adequate attribution of this work and all cited work. The attribution should include the title of the program, the author and the site or the document where the program is taken from.
+I expect adequate attribution of this work and all cited work. The attribution should include the title of the program, the author (me) and the site or the document where the program is taken from.
