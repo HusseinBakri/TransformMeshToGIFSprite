@@ -1,4 +1,6 @@
 # TransformMeshIntoGIFandSprite
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3476877.svg)](https://doi.org/10.5281/zenodo.3476877)
+
 A Python 3 tool that transforms a 3D model / 3D Mesh from OBJ format or Collada into a GIF file and into a CSS Sprite image file using the Blender Python API and other tools.
 
 ## Introduction
